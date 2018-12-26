@@ -1,0 +1,23 @@
+@import './ps'
+
+*, &:before, &:after
+  box-sizing border-box
+
+body
+	font-family system-ui, -apple-system, BlinkMacSystemFont, 'Google Sans', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif
+	-webkit-font-smoothing antialiased
+	-moz-osx-font-smoothing grayscale
+	text-rendering: optimizeLegibility
+
+.collection
+  margin 10px auto
+  position relative
+  figure
+    margin 0
+    a
+      display block
+      font-size 0
+      float left
+      img
+        position absolute
+        background-size cover
