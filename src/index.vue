@@ -36,8 +36,15 @@
     </div>
     <div class="collection" :style="{ width: `${containerW}px`, height: `${containerH}px` }">
       <figure v-for="(photo, key) in collection" :key="key">
-        <a :href="`/${photo.srcHd}`" :data-dimension="photo.dimension">
-          <img :src="`/${photo.src}`" :alt="photo.name" :style="photo.inline">
+        <a :href="photo.srcHd" :data-dimension="photo.dimension">
+          <img
+            :src="photo.src"
+            :srcset="photo.srcset"
+            :alt="photo.name"
+            :style="photo.inline"
+            sizes="1px"
+            class="js-photo"
+          >
         </a>
       </figure>
     </div>
@@ -77,19 +84,17 @@ export default {
       positions.forEach((position, index) => {
         elements.push({
           name: this.photos[index].name,
-          srcHd: this.photos[index].srcHd,
-          dimension: `${this.photos[index].widthHd}x${
-            this.photos[index].heightHd
+          srcHd: this.photos[index].src_hd,
+          dimension: `${this.photos[index].width_hd}x${
+            this.photos[index].height_hd
           }`,
           src: this.photos[index].src,
+          srcset: this.photos[index].srcset,
           inline: {
             width: `${positions[index].width}px`,
             height: `${positions[index].height}px`,
             top: `${positions[index].y}px`,
-            left: `${positions[index].x}px`,
-            backgroundImage: `url(data:image/svg+xml;base64,${
-              this.photos[index].sqip
-            }`
+            left: `${positions[index].x}px`
           }
         });
       });
@@ -135,6 +140,16 @@ export default {
     })();
     window.addEventListener('optimizedResize', this.handleResize);
     photoswipe('.collection');
+
+    setTimeout(() => {
+      let allPhoto = document.querySelectorAll('.js-photo');
+      allPhoto.forEach(photo => {
+        const sizes = Math.ceil(
+          (photo.getBoundingClientRect().width / window.innerWidth) * 100
+        );
+        photo.setAttribute('sizes', sizes + 'vw');
+      });
+    }, 100);
   }
 };
 </script>

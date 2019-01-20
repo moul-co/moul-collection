@@ -22,7 +22,6 @@ export const photoswipe = function(gallerySelector) {
       }
 
       linkEl = figureEl.children[0]; // <a> element
-      console.log(linkEl.getAttribute('data-dimension'));
       size = linkEl.getAttribute('data-dimension').split('x');
 
       // create slide object
