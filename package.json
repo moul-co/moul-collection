@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel src/index.pug",
-    "build": "parcel build src/index.js --out-file moul-collection.min.js --detailed-report --no-source-maps"
+    "build:js": "parcel build src/index.js --out-file moul-collection.min.js --detailed-report --no-source-maps",
+    "build:css": "parcel build src/styl/ps.styl --out-file moul-collection.min.css --detailed-report --no-source-maps"
   },
   "repository": {
     "type": "git",
