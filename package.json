@@ -1,5 +1,5 @@
 {
-  "name": "@moul-co/moul-collection",
+  "name": "moul-collection",
   "version": "1.0.2",
   "description": "",
   "main": "index.js",
@@ -15,9 +15,9 @@
   "author": "Sophearak Tha <hi@sophearak.me> (https://sophearak.me)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/moul-co/moul-collection/issues"
+    "url": "https://github.com/sophearak/moul-collection/issues"
   },
-  "homepage": "https://github.com/moul-co/moul-collection#readme",
+  "homepage": "https://github.com/sophearak/moul-collection#readme",
   "devDependencies": {
     "@vue/component-compiler-utils": "^2.3.1",
     "parcel-bundler": "^1.11.0",
